@@ -1,13 +1,13 @@
 {% extends "catalog.html" %}
 {% block content %}
-    <h1>{{ c.name }}</h1>
-    {{ c.description }}
+    <h1>Category Name: {{ c.name }}</h1>
+    <p>Category Description: {{ c.description }}</p>
     {% include "tags/category_list.html" %}
     <br/><br/>
     {% for p in products %}
         <div class="product_thumbnail">
-            <a href="{{ p.get_absolute_url }}">
-                <img src="{{ MEDIA_URL }}images/products/thumbnails/{{ p.image}}"
+            <a href="{{ p.get_absolute_url }}" style="text-decoration: none">
+                <img src="{{ p.image.url }}" style="width: 100px; height: 100px"
                      alt="{{ p.name }}" class="bn"/>
                 <br/>
                 {{ p.name }}
